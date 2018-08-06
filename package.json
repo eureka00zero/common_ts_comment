@@ -9,13 +9,18 @@
   },
   "dependencies": {
     "vue": "^2.5.16",
-    "vuex": "^3.0.1"
+    "vue-touch": "^1.1.0",
+    "vuex": "^3.0.1",
+    "xss-filters": "^1.2.7"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.10",
     "@vue/cli-plugin-typescript": "^3.0.0-rc.10",
     "@vue/cli-service": "^3.0.0-rc.10",
+    "ts-loader": "^4.4.2",
     "typescript": "^3.0.0",
+    "vue-class-component": "^6.2.0",
+    "vue-property-decorator": "^7.0.0",
     "vue-template-compiler": "^2.5.16"
   }
 }
