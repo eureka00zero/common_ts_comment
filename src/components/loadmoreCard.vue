@@ -7,32 +7,32 @@
     </aside>
   </div>
 </template>
-<script lang="ts">
-import Vue from "vue"
+<script lang='ts'>
+import Vue from 'vue';
 export default Vue.extend({
-  name:"loadmoreCard",
+  name: 'loadmoreCard',
   props: {
     data: {
       type: Object,
-      required: true
+      required: true,
     },
-    config:{
-      type: Object
-    }
+    config: {
+      type: Object,
+    },
   },
-  data(){
+  data() {
       return{
-          showCMNTName : ""
-      }
+          showCMNTName : '',
+      };
   },
   created() {
     // console.log("create");
-    this.showCMNTName = this.config.showName || '评论'
+    this.showCMNTName = this.config.showName || '评论';
   },
   methods: {
-    doSecLoadmore():void {
-      this.$emit("do-sec-loadmore", { data: this.data });
-    }
-  }
+    doSecLoadmore(): void {
+      this.$emit('do-sec-loadmore', { data: this.data });
+    },
+  },
 });
 </script>

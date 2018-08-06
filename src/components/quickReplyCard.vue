@@ -18,7 +18,7 @@ const defaultImg = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAA
 AAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=`;
 // TODO: +V 信息  ic_v_blue ic_v_yellow
 export default Vue.extend({
-    name:"quickReplyCard",
+    name: 'quickReplyCard',
   props: {
     data: {
       type: Object,

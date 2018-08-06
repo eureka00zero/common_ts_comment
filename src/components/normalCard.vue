@@ -46,45 +46,45 @@
   </div>
 </template>
 <script lang='ts'>
-import Vue from "vue"
+import Vue from 'vue';
 // TODO: +V 信息  ic_v_blue ic_v_yellow
 export default Vue.extend({
-  name :"normalCard",
+  name : 'normalCard',
   props: {
     data: {
       type: Object,
-      required: true
+      required: true,
     },
     config: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   created() {
     // console.log("normal card created", this.data);
   },
   methods: {
-    doPraise():void {
-      let status = this.data.__doPraise ? 1 : 0; // 之前的点赞状态 1已点过 0没点过
-      this.$emit("do-praise", { data: this.data, status: status });
+    doPraise(): void {
+      const status = this.data.__doPraise ? 1 : 0; // 之前的点赞状态 1已点过 0没点过
+      this.$emit('do-praise', { data: this.data, status: status });
     },
-    doReply():void {
-      this.$emit("do-reply", { data: this.data });
+    doReply(): void {
+      this.$emit('do-reply', { data: this.data });
     },
-    doReport():void {
-      this.$emit("do-report", { data: this.data });
+    doReport(): void {
+      this.$emit('do-report', { data: this.data });
     },
-    doShowall():void {
-      this.$emit("do-showall", { data: this.data });
+    doShowall(): void {
+      this.$emit('do-showall', { data: this.data });
     },
-    doImgclick():void {
-      this.$emit("do-imgclick", { data: this.data });
+    doImgclick(): void {
+      this.$emit('do-imgclick', { data: this.data });
     },
-    showReport(e:String):void {
-      this.$emit("show-report", { data: this.data });
+    showReport(e: string): void {
+      this.$emit('show-report', { data: this.data });
     },
-    closeReport():void {
-      this.$emit("close-report", { data: this.data });
-    }
-  }
+    closeReport(): void {
+      this.$emit('close-report', { data: this.data });
+    },
+  },
 });
 </script>

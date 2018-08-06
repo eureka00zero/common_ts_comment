@@ -5,6 +5,7 @@
     <loadmore-card :data="fakeData" :config="fakeData"/>
     <fake-pub-card :data="fakeData" :config="fakeData"/>
     <normal-card :data="fakeData" :config="fakeData"/>
+    <cmnt-list/>
   </div>
 </template>
 
@@ -15,15 +16,16 @@ import quickReplyCard from './components/quickReplyCard.vue';
 import loadmoreCard from './components/loadmoreCard.vue';
 import fakePubCard from './components/fakePubCard.vue';
 import NormalCard from './components/normalCard.vue';
-import "./css/cmnt.css";
+import cmntList from './components/cmntList.vue';
+import './css/cmnt.css';
 
 export default Vue.extend({
   name: 'app',
   data() {
     return {
-        fakeData:{
-            userImg:""
-        }
+        fakeData: {
+            userImg: '',
+        },
     };
   },
   components: {
@@ -32,6 +34,7 @@ export default Vue.extend({
     loadmoreCard,
     fakePubCard,
     NormalCard,
+    cmntList,
   },
 });
 </script>

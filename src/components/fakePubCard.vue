@@ -43,27 +43,27 @@
   </div>
 </template>
 <script lang='ts'>
-import Vue from "vue";
+import Vue from 'vue';
 const defaultImg =
 `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACne
  j3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=`;
 
 
 export default Vue.extend({
-  name:"fakePubCard",
+  name: 'fakePubCard',
   props: {
     data: {
       type: Object,
-      required: true
+      required: true,
     },
     config: {
-      type: Object
-    }
+      type: Object,
+    },
   },
-  data(){
+  data() {
       return{
-        fakePublishText:""
-      }
+        fakePublishText: '',
+      };
   },
   created() {
     this.data.profile_img = this.data.profile_img || defaultImg;
@@ -86,12 +86,12 @@ export default Vue.extend({
     // closeReport() {
     //   this.$emit("close-report", { data: this.data });
     // }
-    doShowall():void {
-      this.$emit("do-showall", { data: this.data });
+    doShowall(): void {
+      this.$emit('do-showall', { data: this.data });
     },
-    doImgclick():void {
-      this.$emit("do-imgclick", { data: this.data });
-    }
-  }
+    doImgclick(): void {
+      this.$emit('do-imgclick', { data: this.data });
+    },
+  },
 });
 </script>
