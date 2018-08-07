@@ -23,14 +23,7 @@
 			<!--回帖模块_s-->
 			<section class="Card_Mb8">
 				<section class="post_return_box">
-					<h1 class="post_return_tit">
-						<span class="post_return_tit_txt">回帖</span>
-						<!-- <v-touch class="post_return_reply" tag="p" v-on:press="showReport">111111111</v-touch> -->
-						<nav class="post_return_tit_nav">
-							<a href="#" class="post_return_tit_tab" :class="{active: isHot}" @click="toogleHot">热门</a>
-							<a href="#" class="post_return_tit_tab" :class="{active: !isHot}" @click="toogleTime">时间</a>
-						</nav>
-					</h1>
+					<div id="app"></div>
 					<!-- <aside class="post_return_case">
 						<div class="post_return_row">
 							<div class="post_return_row_l">
@@ -174,7 +167,7 @@
 						</div>
 						
 					</aside> -->
-					<cmnt-list :top-layer="topLayer" :sec-layer="secLayer" :user-info="userInfo" :agreed-list="agreedList" :config="config" @cmnt-do-praise="doPraise" @cmnt-do-reply="doReply" @cmnt-do-report="doReport" @cmnt-do-sec-loadmore="doSecLoadmore" @cmnt-do-top-loadmore="doTopLoadmore"  @cmnt-do-showall="doShowall" @cmnt-do-imgclick="doImgclick" ref="cmnt"></cmnt-list>
+					
 				</section>
 			</section>
 			<!--回帖模块_e-->

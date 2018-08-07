@@ -19,7 +19,7 @@ import VueTouch from '../import/vueTouch';
 import {throttle,cloneDeep} from "lodash";
 
 
-import quickReplyCard from './quickReplyCard.vue';
+import quickCard from './quickReplyCard.vue';
 import loadmoreCard from './loadmoreCard.vue';
 import fakePubCard from './fakePubCard.vue';
 import normalCard from './normalCard.vue';
@@ -44,7 +44,7 @@ const elasticDistance = 50;
 @Component({
  components: {
     normalCard,
-    quickReplyCard,
+    quickCard,
     loadmoreCard,
     fakePubCard,
   },
