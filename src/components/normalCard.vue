@@ -23,11 +23,11 @@
         <!-- <p class="post_return_reply" v-finger:long-tap="showReport">
           {{data.content}}
         </p> -->
-        <v-touch :class="{'post_return_show': !data.__showEllipsis}" tag="div" :options="{domEvents:true}" v-on:press="showReport($event)" v-bind:press-options="{ time	: 800}" v-on:tap="closeReport($event)">
+        <nav :class="{'post_return_show': !data.__showEllipsis}" tag="div" :options="{domEvents:true}" v-on:press="showReport($event)" v-bind:press-options="{ time	: 800}" v-on:tap="closeReport($event)">
           <p class="post_return_reply" v-html="data.__showContent"></p>
           <a class="post_return_reply_more" @click="doShowall">展开全部</a >
           <img v-if="data.comment_imgs && data.comment_imgs[0]" @click="doImgclick" class="post_return_img i_bg" :src="data.comment_imgs[0]" />
-        </v-touch>
+        </nav>
         <!-- <v-touch class="post_return_reply" tag="p" :options="{domEvents:true}" v-on:press="showReport($event)" v-bind:press-options="{ time	: 800}" v-on:tap="closeReport($event)">{{data.__showReplyUser}}{{data.content}}</v-touch> -->
         <nav class="post_return_fun">
           <a href="javascript:void(0)" @click="doPraise" class="post_return_fun_link" :class="{ active: data.__doPraise}">

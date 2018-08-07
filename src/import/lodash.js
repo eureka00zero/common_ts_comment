@@ -1,4 +1,5 @@
-import lodashThrottle from 'lodash/throttle';
-import lodashCloneDeep from 'lodash/cloneDeep';
-export default  lodashThrottle;
-export default lodashCloneDeep;
+import throttle from 'lodash/throttle';
+import cloneDeep from 'lodash/cloneDeep';
+export const lodashCloneDeep = cloneDeep;
+export const lodashThrottle = throttle;
+export default {lodashCloneDeep,lodashThrottle}

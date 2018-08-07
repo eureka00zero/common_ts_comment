@@ -32,13 +32,28 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default Vue.extend({
-  name: 'HelloWorld',
-  props: {
-    msg: String,
-  },
-});
+@Component
+  export default class App extends Vue {
+    // 初始化数据
+    private msg = 123;
+
+    // 声明周期钩子
+    private mounted() {
+      this.greet();
+    }
+
+    // 计算属性
+    get computedMsg() {
+      return 'computed ' + this.msg;
+    }
+
+    // 方法
+    private greet() {
+      alert('greeting: ' + this.msg);
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

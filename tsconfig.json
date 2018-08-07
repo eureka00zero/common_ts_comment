@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "experimentalDecorators": true,
+    "allowJs": true,        //
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,

@@ -8,6 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@mfelibs/client-sticker-convert": "^1.0.0",
+    "@mfelibs/base-css": "^2.2.5",
+    "@types/lodash": "^4.14.116",
+    "es6-set": "^0.1.5",
     "vue": "^2.5.16",
     "vue-touch": "^1.1.0",
     "vuex": "^3.0.1",
@@ -17,9 +21,9 @@
     "@vue/cli-plugin-babel": "^3.0.0-rc.10",
     "@vue/cli-plugin-typescript": "^3.0.0-rc.10",
     "@vue/cli-service": "^3.0.0-rc.10",
+    "lodash": "^4.17.10",
     "ts-loader": "^4.4.2",
     "typescript": "^3.0.0",
-    "lodash": "^4.17.10",
     "vue-class-component": "^6.2.0",
     "vue-property-decorator": "^7.0.0",
     "vue-template-compiler": "^2.5.16"
