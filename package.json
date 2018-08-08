@@ -15,7 +15,8 @@
     "vue": "^2.5.16",
     "vue-touch": "^1.1.0",
     "vuex": "^3.0.1",
-    "xss-filters": "^1.2.7"
+    "xss-filters": "^1.2.7",
+    "@mfelibs/base-utils": "^1.5.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.10",

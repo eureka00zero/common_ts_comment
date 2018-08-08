@@ -13,6 +13,7 @@
 </template>
 <script lang='ts'>
 import Vue from 'vue';
+import $ from "../import/utils";
 import {Emit, Inject, Model, Prop, Provide, Watch } from 'vue-property-decorator';
 import Component from 'vue-class-component';
 import VueTouch from '../import/vueTouch';
@@ -32,6 +33,7 @@ import {
   mergeSecData,
   addSecSpecData,
   formatFakeData,
+  newToOld,
 } from './formatter';
 const cardTypeMap = {
   normalCard: 'normal-card',
@@ -60,6 +62,8 @@ export default class CmntList extends Vue {
     public agreedList: any[]
     @Prop()
     public config: any
+    @Prop()
+    public newData: any[]
     @Provide()
         public cardTypeMap: any = Object.assign({}, cardTypeMap);
         public cmntArray: any[] = [];
@@ -69,6 +73,7 @@ export default class CmntList extends Vue {
         public loadmoreThreshold: number = 0;
         public localAutoScroll: number = 1;
         public localTopArray: any = {};
+        public localNewList: any[] = [];
         public localSecObject: any = {};
         public localUserInfo: any = {};
         public localAgreedList: any[] = [];
@@ -76,7 +81,22 @@ export default class CmntList extends Vue {
         public topLayerPage: number = 0;
 
   public created() {
+      //console.log(this.newData);
+    // $.ajax({
+    //   url: "http://newsapi.sina.cn/?resource=comment/baseInfo&abt=229_155_191_231_141_16_13_181_24_237_203_280_241_31_128_149_49_185_135_249_171_189_113_207_18_253_143_198_255_21_38_55_217_29_222_315_147_46_223_169_187_111&abver=15266265966871&accessToken=2.00_GvkMCe3vYNC2a4780f223v_JTNB&authGuid=6400365289703266036&authToken=8c2a73728cb7c884de845005857d4895&chwm=3023_0001&city=WMXX2971&connectionType=2&deviceId=aa42ca3e6b239c68f02e5270b2beaaa31c6c98dc&deviceModel=apple-iphone8&from=6068793012&idfa=2D0A0A26-7096-45C6-A9A7-6925B8CD2472&idfv=4AAAEF04-4B44-448D-B693-05C9934F1ED1&imei=aa42ca3e6b239c68f02e5270b2beaaa31c6c98dc&location=40.041654%2C116.275813&osVersion=11.3&resolution=750x1334&seId=eecac04b74&ua=apple-iphone8__SinaNews__6.8.7__iphone__11.3&unicomFree=0&weiboSuid=77c1b3af42&weiboUid=2020764283&wm=b207&rand=896&urlSign=c33fcd39e6&commentId=comos-haturfs2178122_0_yl__haturfs2178122-comos-ent-cms&hotCount=5&postt=news_news_ent_feed_5",
+    //   type: "GET",
+    //   success: (res: any) => {
+    //     //设置数据
+    //     if (res != null) {
+    //       console.log(res.data)
+    //     }
+    //   },
+    //   error: function(err: Error) {}
+    // });
 
+
+    console.log(this.newData)
+    let resultData = newToOld(this.newData)
     const config = this.config || {};
     if (config.autoScroll === undefined) {
       this.localAutoScroll = 1;
@@ -90,10 +110,12 @@ export default class CmntList extends Vue {
     }
 
     // 存储数据
-    this.localSecObject = cloneDeep(this.secLayer);
-    this.localTopArray = cloneDeep(this.topLayer);
+    console.log(resultData);
+    this.localSecObject = cloneDeep(resultData.secLayer);
+    this.localTopArray = cloneDeep(resultData.topLayer);
     this.localUserInfo = cloneDeep(this.userInfo) || {};
     this.localAgreedList = cloneDeep(this.agreedList) || [];
+    this.localNewList = cloneDeep(this.newData) || [];
 
     this._initSpecData();
 

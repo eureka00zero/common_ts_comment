@@ -570,6 +570,10 @@
   version "2.2.5"
   resolved "http://registry.cnpm.sina.com.cn/@mfelibs/base-css/download/@mfelibs/base-css-2.2.5.tgz#404ddc1d9ca1adae7398b955cd298eb890c8e7af"
 
+"@mfelibs/base-utils@^1.5.3":
+  version "1.5.3"
+  resolved "http://registry.cnpm.sina.com.cn/@mfelibs/base-utils/download/@mfelibs/base-utils-1.5.3.tgz#5715fd3cf05e533968b681a3e8381f23ccff7513"
+
 "@mfelibs/client-sticker-convert@^1.0.0":
   version "1.0.0"
   resolved "http://registry.cnpm.sina.com.cn/@mfelibs/client-sticker-convert/download/@mfelibs/client-sticker-convert-1.0.0.tgz#a51a4bfa31d59164f923edeeab9277be83613b37"

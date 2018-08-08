@@ -18,6 +18,24 @@ let showNumFormat = num => {
   }
 }
 
+
+let newToOld = (data) => {
+    let topLayer = [];
+    let secLayer = {};
+    let index = 0;
+    data.forEach((item)=>{
+        if(item.hasOwnProperty('replyList')){
+            let key = item.mid;
+            let value = {count:item.replyList.length,list:item.replyList}
+            secLayer[key] = value
+            delete item.replyList;
+        }
+    })
+
+    topLayer = data;
+    return {topLayer,secLayer}
+}
+
 let addNormalShowData = (data, agreedList) => {
   let oriContentLen = toArray(data.content).length; // 为了排除emoji的长度 emoji的长度可能为2或4 影响长度判断 lodash toArray方法处理了这种情况，绝大部分的单独的emoji可以被识别出来放在一个数组的元素中
   let replaceObj = replaceFace(xssFilters.inHTMLData(data.content));
@@ -176,7 +194,7 @@ let formatFakeData = (data, userInfo) => {
 let showTimeFormat = time => {
   let DataTimer;
   if (time) {
-    let formateTime = time.replace(/-/g, '/');
+    let formateTime = time.toString().replace(/-/g, '/');
     DataTimer = new Date(formateTime);
   } else {
     DataTimer = new Date();
@@ -266,5 +284,6 @@ export {
   showNumFormat,
   mergeSecData,
   addSecSpecData,
-  formatFakeData
+  formatFakeData,
+  newToOld
 }

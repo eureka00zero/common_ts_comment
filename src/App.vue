@@ -12,7 +12,7 @@
             <a href="#" class="post_return_tit_tab" :class="{active: !isHot}" @click="toogleTime">时间</a>
         </nav>
     </h1>
-    <cmnt-list :top-layer="topLayer" :sec-layer="secLayer" :user-info="userInfo" :agreed-list="agreedList" :config="config" @cmnt-do-praise="doPraise" @cmnt-do-reply="doReply" @cmnt-do-report="doReport" @cmnt-do-sec-loadmore="doSecLoadmore" @cmnt-do-top-loadmore="doTopLoadmore"  @cmnt-do-showall="doShowall" @cmnt-do-imgclick="doImgclick" ref="cmnt"></cmnt-list>
+    <cmnt-list :new-data="realList" :top-layer="topLayer" :sec-layer="secLayer" :user-info="userInfo" :agreed-list="agreedList" :config="config" @cmnt-do-praise="doPraise" @cmnt-do-reply="doReply" @cmnt-do-report="doReport" @cmnt-do-sec-loadmore="doSecLoadmore" @cmnt-do-top-loadmore="doTopLoadmore"  @cmnt-do-showall="doShowall" @cmnt-do-imgclick="doImgclick" ref="cmnt"></cmnt-list>
   </div>
 </template>
 
@@ -33,6 +33,7 @@ import {
   secCMNT,
   secLoadmore,
   topLoadmore,
+  newList,
 } from "./fakeData"
 
 export default Vue.extend({
@@ -41,6 +42,7 @@ export default Vue.extend({
     return {
         topLayer: fakeData1,
         secLayer: secCMNT,
+        realList: newList,
         userInfo: {
         uid: "1706126015",
         nick: 'ohjbdfwkbhje',
