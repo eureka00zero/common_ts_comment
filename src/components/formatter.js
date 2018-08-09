@@ -194,7 +194,9 @@ let formatFakeData = (data, userInfo) => {
 let showTimeFormat = time => {
   let DataTimer;
   if (time) {
-    let formateTime = time.toString().replace(/-/g, '/');
+    // let formateTime = time.toString().replace(/-/g, '/');
+    // 新接口为时间戳格式
+    let formateTime = time * 1000;
     DataTimer = new Date(formateTime);
   } else {
     DataTimer = new Date();

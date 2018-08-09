@@ -142,6 +142,7 @@ export default class CmntList extends Vue {
       window.removeEventListener('scroll', this._lodashWrapper);
   }
     public doPraise(info: any) {
+        console.log(info);
         info = info || { data: {}, status: 0 };
         // 存储点赞信息
         // info.data.mid && this.praiseSet.add(info.data.mid);

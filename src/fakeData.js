@@ -1335,7 +1335,7 @@ const topLoadmore = [{
 }]
 
 const newList = [{
-    agree:"94",
+    agree:"49",
     area:"四川成都",
     colorLevel:1,
     commentId:"comos-haturfs2178122_0_yl__comos-haturfs2178122",
