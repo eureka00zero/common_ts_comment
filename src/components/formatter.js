@@ -82,12 +82,12 @@ let formatAllData = (topLayer, secLayer, userInfo, agreedList) => {
     addNormalShowData(topItem, agreedList);
 
     // 判断本人回复
-    if (topItem.uid === userInfo.uid) {
+    if (topItem.publisher==1) {
       topItem.__isMy = 1;
     }
 
     // 有快捷回复或者二级评论 则有边框
-    if (topItem.quick_reply) {
+    if (topItem.showReplyWiget) {
       topItem.__hasLine = 1;
     }
 
@@ -106,9 +106,9 @@ let formatAllData = (topLayer, secLayer, userInfo, agreedList) => {
           formatFakeData(fakeItem, userInfo);
 
           // 添加 回复 xxx: 
-          if (fakeItem.parent_uid !== topItem.uid) {
-            // fakeItem.__showReplyUser = `回复${fakeItem.parent_nick}：`
-            fakeItem.__showContent = `回复${fakeItem.parent_nick}：` + fakeItem.__showContent;
+          if (fakeItem.pUid !== topItem.wbUserId) {
+            // fakeItem.__showReplyUser = `回复${fakeItem.pNick}：`
+            fakeItem.__showContent = `回复${fakeItem.pNick}：` + fakeItem.__showContent;
           }
 
           fakeItem.__showMini = 1;
@@ -128,13 +128,13 @@ let formatAllData = (topLayer, secLayer, userInfo, agreedList) => {
         }
 
         // 判断本人回复
-        if (secItem.uid === userInfo.uid) {
+        if (secItem.publisher == 1) {
           secItem.__isMy = 1;
         }
 
         // 添加 回复 xxx: 
-        if (secItem.parent_uid !== topItem.uid) {
-          secItem.__showContent = `回复${secItem.parent_nick}：` + secItem.__showContent;
+        if (secItem.pUid !== topItem.wbUserId) {
+          secItem.__showContent = `回复${secItem.pNick}：` + secItem.__showContent;
         }
 
         tempList.push(secItem);
@@ -150,15 +150,15 @@ let formatAllData = (topLayer, secLayer, userInfo, agreedList) => {
           __totalCount: totalSecLayerCount,
           __remainCount: totalSecLayerCount - secNum,
           __showLoading: secLayer[topItem.mid].__loading,
-          __singleLoadmore: !topItem.quick_reply // 没有快捷回复时添加额外样式
+          __singleLoadmore: !topItem.showReplyWiget // 没有快捷回复时添加额外样式
         })
         tempList.push(loadmoreItem);
       }
     }
 
-    if (topItem.quick_reply) {
+    if (topItem.showReplyWiget) {
       let {
-        quick_reply,
+        showReplyWiget,
         ...cleanObj
       } = topItem;
 
