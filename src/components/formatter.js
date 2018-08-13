@@ -1,3 +1,4 @@
+///<reference path='formatter.d.ts' />
 import xssFilters from 'xss-filters';
 import replaceFace from '@mfelibs/client-sticker-convert';
 import toArray from "lodash/toArray";
