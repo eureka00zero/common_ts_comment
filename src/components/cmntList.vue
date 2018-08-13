@@ -13,7 +13,7 @@
 </template>
 <script lang='ts'>
 import Vue from 'vue';
-import $ from "jquery";
+import * as $ from "jquery";
 import {Emit, Inject, Model, Prop, Provide, Watch } from 'vue-property-decorator';
 import Component from 'vue-class-component';
 //import VueTouch from '../import/vueTouch';
