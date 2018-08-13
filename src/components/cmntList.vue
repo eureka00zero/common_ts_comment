@@ -13,10 +13,10 @@
 </template>
 <script lang='ts'>
 import Vue from 'vue';
-import $ from "../import/utils";
+import $ from "jquery";
 import {Emit, Inject, Model, Prop, Provide, Watch } from 'vue-property-decorator';
 import Component from 'vue-class-component';
-import VueTouch from '../import/vueTouch';
+//import VueTouch from '../import/vueTouch';
 import {throttle,cloneDeep} from "lodash";
 
 
@@ -53,17 +53,17 @@ const elasticDistance = 50;
 })
 export default class CmntList extends Vue {
     @Prop()
-    public topLayer: any[]
+    public topLayer?: any[]
     @Prop()
-    public secLayer: object
+    public secLayer?: object
     @Prop()
-    public userInfo: object
+    public userInfo?: object
     @Prop()
-    public agreedList: any[]
+    public agreedList?: any[]
     @Prop()
-    public config: any
+    public config?: any
     @Prop()
-    public newData: any[]
+    public newData?: any[]
     @Provide()
         public cardTypeMap: any = Object.assign({}, cardTypeMap);
         public cmntArray: any[] = [];
