@@ -1,6 +1,6 @@
 {
   "name": "@mfelibs/common-ts-comment",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "玲珑评论组件二期",
   "main": "src/main.ts",
   "scripts": {
@@ -17,18 +17,18 @@
     "vue": "^2.5.16",
     "vue-touch": "^1.1.0",
     "vuex": "^3.0.1",
-    "xss-filters": "^1.2.7"
+    "xss-filters": "^1.2.7",
+    "vue-class-component": "^6.2.0",
+    "vue-property-decorator": "^7.0.0",
+    "vue-template-compiler": "^2.5.16",
+    "@types/jquery": "^3.3.5"
   },
   "devDependencies": {
-    "@types/jquery": "^3.3.5",
     "@vue/cli-plugin-babel": "^3.0.0-rc.10",
     "@vue/cli-plugin-typescript": "^3.0.0-rc.10",
     "@vue/cli-service": "^3.0.0-rc.10",
     "lodash": "^4.17.10",
     "ts-loader": "^4.4.2",
-    "typescript": "^3.0.0",
-    "vue-class-component": "^6.2.0",
-    "vue-property-decorator": "^7.0.0",
-    "vue-template-compiler": "^2.5.16"
+    "typescript": "^3.0.0"
   }
 }

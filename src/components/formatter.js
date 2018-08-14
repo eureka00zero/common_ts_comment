@@ -282,7 +282,7 @@ let mergeSecData = (oldData, newData, isClick) => {
   return oldData
 }
 
-export {
+export default{
   formatAllData,
   showNumFormat,
   mergeSecData,

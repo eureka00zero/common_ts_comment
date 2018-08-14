@@ -23,6 +23,7 @@ import quickReplyCard from './components/quickReplyCard.vue';
 import loadmoreCard from './components/loadmoreCard.vue';
 import fakePubCard from './components/fakePubCard.vue';
 import NormalCard from './components/normalCard.vue';
+import cmntList from "./components/cmntList.vue"
 import  '../lib/js/app.js';
 import './css/cmnt.css';
 import "@mfelibs/base-css"

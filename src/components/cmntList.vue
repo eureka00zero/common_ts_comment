@@ -18,7 +18,7 @@ import {Emit, Inject, Model, Prop, Provide, Watch } from 'vue-property-decorator
 import Component from 'vue-class-component';
 //import VueTouch from '../import/vueTouch';
 import {throttle,cloneDeep} from "lodash";
-
+import "@mfelibs/base-css"
 
 import quickCard from './quickReplyCard.vue';
 import loadmoreCard from './loadmoreCard.vue';
@@ -27,14 +27,7 @@ import normalCard from './normalCard.vue';
 
 
 import '../css/cmnt.css';
-import {
-  formatAllData,
-  showNumFormat,
-  mergeSecData,
-  addSecSpecData,
-  formatFakeData,
-  newToOld,
-} from './formatter';
+import Formatter from './formatter';
 const cardTypeMap = {
   normalCard: 'normal-card',
   quickReplyCard: 'quick-card',
@@ -96,7 +89,7 @@ export default class CmntList extends Vue {
 
 
     console.log(this.newData)
-    let resultData = newToOld(this.newData)
+    let resultData = Formatter.newToOld(this.newData)
     const config = this.config || {};
     if (config.autoScroll === undefined) {
       this.localAutoScroll = 1;
@@ -120,7 +113,7 @@ export default class CmntList extends Vue {
     this._initSpecData();
 
     // 获取格式化后的渲染数据
-    this.cmntArray = formatAllData(
+    this.cmntArray = Formatter.formatAllData(
       this.localTopArray,
       this.localSecObject,
       this.localUserInfo,
@@ -152,7 +145,7 @@ export default class CmntList extends Vue {
         if (!info.status) {
         this.localAgreedList.push(info.data.mid);
         info.data.agree = info.data.agree + 1;
-        info.data.__showAgree = showNumFormat(info.data.agree);
+        info.data.__showAgree = Formatter.showNumFormat(info.data.agree);
         info.data.__hot = parseInt(info.data.agree, 10) > 49; // 热门评论 特殊背景颜色样式
         }
         this.$emit('cmnt-do-praise', info);
@@ -220,7 +213,7 @@ export default class CmntList extends Vue {
         // 添加点赞状态
         // 如果直接在格式化时处理 在列表切换时 切换前后都有点赞状态的节点没动效 显示效果不统一
         setTimeout(() => {
-        this.cmntArray = formatAllData(
+        this.cmntArray = Formatter.formatAllData(
             this.localTopArray,
             this.localSecObject,
             this.localUserInfo,
@@ -231,7 +224,7 @@ export default class CmntList extends Vue {
     public updateUserInfo(userInfo: any) {
         userInfo = userInfo || {};
         this.localUserInfo = cloneDeep(userInfo);
-        this.cmntArray = formatAllData(
+        this.cmntArray = Formatter.formatAllData(
         this.localTopArray,
         this.localSecObject,
         this.localUserInfo,
@@ -292,7 +285,7 @@ export default class CmntList extends Vue {
             localSecFakeData,
         );
 
-        this.cmntArray = formatAllData(
+        this.cmntArray = Formatter.formatAllData(
             this.localTopArray,
             this.localSecObject,
             this.localUserInfo,
@@ -313,7 +306,7 @@ export default class CmntList extends Vue {
         } else {
         // 对文章的假发布
         const localFakeData = cloneDeep(data.fakeData);
-        formatFakeData(localFakeData, this.localUserInfo);
+        Formatter.formatFakeData(localFakeData, this.localUserInfo);
         this.fakePublishList.unshift(localFakeData);
 
         // // 如果需更新点赞信息
@@ -338,7 +331,7 @@ export default class CmntList extends Vue {
     public _initSpecData() {
         for (const mid in this.localSecObject) {
             if (this.localSecObject.hasOwnProperty(mid)) {
-             addSecSpecData(this.localSecObject[mid]);
+             Formatter.addSecSpecData(this.localSecObject[mid]);
             }
         }
         this.topLayerPage = 2; // 默认加载更多从第二屏开始
@@ -353,8 +346,8 @@ export default class CmntList extends Vue {
         if (userInfo) {
         this.localUserInfo = cloneDeep(userInfo);
         }
-        this.localSecObject = mergeSecData(this.localSecObject, secLayer, 1);
-        this.cmntArray = formatAllData(
+        this.localSecObject = Formatter.mergeSecData(this.localSecObject, secLayer, 1);
+        this.cmntArray = Formatter.formatAllData(
         this.localTopArray,
         this.localSecObject,
         this.localUserInfo,
@@ -370,9 +363,9 @@ export default class CmntList extends Vue {
         this.topLoadmoreLock = false; // 允许加载更多
         this.topLayerPage++; // 更新页码
         this.localTopArray = this.localTopArray.concat(topLayer);
-        this.localSecObject = mergeSecData(this.localSecObject, secLayer);
+        this.localSecObject = Formatter.mergeSecData(this.localSecObject, secLayer);
 
-        this.cmntArray = formatAllData(
+        this.cmntArray = Formatter.formatAllData(
             this.localTopArray,
             this.localSecObject,
             this.localUserInfo,
